@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Take Home Support</title>
+<meta name="description" content="Help for Take Home, the UK take-home pay calculator for iPhone.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <a class="crumb" href="/">Apps by Manjinder Boora</a>
+    <h1>Take Home support</h1>
+    <p class="lede">Help for Take Home, the calculator that works out your UK pay after Income Tax, National Insurance, student loans and pension.</p>
+    <nav aria-label="On this site">
+      <a href="#help">Help</a>
+      <a href="/take-home/privacy/">Privacy policy</a>
+      <a href="/take-home/terms/">Terms of use</a>
+    </nav>
+  </header>
+
+  <section id="help" aria-labelledby="help-title">
+    <h2 id="help-title">Get in touch</h2>
+    <p>Spotted a figure that looks wrong, or found a bug? Email with your salary details as entered, the tax year and what you expected to see.</p>
+    <div class="contact">
+      <a class="email" id="email" href="mailto:mboora@outlook.com?subject=Take%20Home">mboora@outlook.com</a>
+      <button class="copy" id="copy" type="button">Copy email</button>
+    </div>
+    <p class="muted">Replies usually arrive within two working days.</p>
+
+    <h3>Common questions</h3>
+    <dl>
+      <div>
+        <dt>Why is my payslip different?</dt>
+        <dd>Take Home gives yearly estimates from HMRC's published rates. Your payslip can differ because of your tax code, how your employer runs payroll period by period, company benefits, other income or a bonus paid in one month.</dd>
+      </div>
+      <div>
+        <dt>Which tax years does it cover?</dt>
+        <dd>2026/27 and 2025/26, for England, Wales, Northern Ireland and Scotland. Rates are updated each April.</dd>
+      </div>
+      <div>
+        <dt>Which pension type do I have?</dt>
+        <dd>Your payslip or pension provider will say. Most workplace schemes use relief at source or net pay. Salary sacrifice reduces your salary before tax and National Insurance.</dd>
+      </div>
+      <div>
+        <dt>How do I change language or switch to dark mode?</dt>
+        <dd>Tap the globe for language, or the gear for Settings, at the top of the screen. Take Home is available in English, Welsh, Polish, Romanian, Punjabi, Urdu and Portuguese.</dd>
+      </div>
+      <div>
+        <dt>Is this tax advice?</dt>
+        <dd>No. Take Home gives estimates for guidance only. It is not tax or financial advice and is not connected to HMRC or the UK Government. For questions about your own tax, contact your employer or HMRC.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>Take Home is made by Manjinder Boora, an independent developer in the UK. It isn't affiliated with HMRC, the Student Loans Company or any government body.</footer>
+</main>
+
+<script>
+(() => {
+  const btn = document.getElementById("copy");
+  const email = document.getElementById("email");
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(email.textContent.trim());
+      btn.textContent = "Copied";
+    } catch (e) {
+      const range = document.createRange();
+      range.selectNodeContents(email);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = "Selected, press copy";
+    }
+    setTimeout(() => { btn.textContent = "Copy email"; }, 2200);
+  });
+})();
+</script>
+</body>
+</html>
