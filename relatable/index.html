@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relatable Support</title>
+<meta name="description" content="Help for Relatable: City Anagrams, the word game where every answer relates to a British city.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <a class="crumb" href="/">Apps by Manjinder Boora</a>
+    <div class="tiles" aria-hidden="true">
+      <span style="--edge:#2F7A4E">R</span><span style="--edge:#B23A3A">E</span><span style="--edge:#6B4C9A">L</span><span style="--edge:#1F6F8B">A</span><span style="--edge:#2C4A7A">T</span><span style="--edge:#C77D1A">E</span>
+    </div>
+    <h1>Relatable support</h1>
+    <p class="lede">Help for Relatable: City Anagrams, the word game where every answer relates to a British city.</p>
+    <nav aria-label="On this site">
+      <a href="#help">Help</a>
+      <a href="/relatable/privacy/">Privacy policy</a>
+    </nav>
+  </header>
+
+  <section id="help" aria-labelledby="help-title">
+    <h2 id="help-title">Get in touch</h2>
+    <p>Found a bug, a wrong clue or a purchase problem? Email and include your iPhone model and what happened.</p>
+    <div class="contact">
+      <a class="email" id="email" href="mailto:mboora@outlook.com?subject=Relatable">mboora@outlook.com</a>
+      <button class="copy" id="copy" type="button">Copy email</button>
+    </div>
+    <p class="muted">Replies usually arrive within two working days.</p>
+
+    <h3>Common questions</h3>
+    <dl>
+      <div>
+        <dt>I bought a city but it's still locked</dt>
+        <dd>Open Settings in the game and tap Restore purchases, using the same Apple Account you bought it with.</dd>
+      </div>
+      <div>
+        <dt>When do my lives come back?</dt>
+        <dd>All three come back at midnight UK time. The game checks the time online, so it needs an internet connection to refill them. You can also restore them straight away in the shop.</dd>
+      </div>
+      <div>
+        <dt>Why can't I hear anything?</dt>
+        <dd>Relatable stays silent when your iPhone is on silent. Also check the speaker button in the game and the Sound switches in Settings.</dd>
+      </div>
+      <div>
+        <dt>Can I get a refund?</dt>
+        <dd>Purchases are handled by Apple. Request a refund at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</dd>
+      </div>
+      <div>
+        <dt>I think a clue is wrong</dt>
+        <dd>Please email the city, level number and what you think is wrong. Corrections go into the next update.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>Relatable is made by Manjinder Boora, an independent developer in the UK. It isn't affiliated with any TV programme, broadcaster, council or tourist board.</footer>
+</main>
+
+<script>
+(() => {
+  const btn = document.getElementById("copy");
+  const email = document.getElementById("email");
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(email.textContent.trim());
+      btn.textContent = "Copied";
+    } catch (e) {
+      const range = document.createRange();
+      range.selectNodeContents(email);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = "Selected, press copy";
+    }
+    setTimeout(() => { btn.textContent = "Copy email"; }, 2200);
+  });
+})();
+</script>
+</body>
+</html>
