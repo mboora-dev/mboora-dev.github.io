@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>All Things Race Support</title>
+<meta name="description" content="Help for All Things Race, the offline motorbike racing game for iPhone.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <a class="crumb" href="/">Apps by Manjinder Boora</a>
+    <h1>All Things Race support</h1>
+    <p class="lede">Help for All Things Race, the motorbike racing game through toy versions of Nottingham, Birmingham and Leicester, seen from the saddle.</p>
+    <nav aria-label="On this site">
+      <a href="#help">Help</a>
+      <a href="/all-things-race/privacy/">Privacy policy</a>
+    </nav>
+  </header>
+
+  <section id="help" aria-labelledby="help-title">
+    <h2 id="help-title">Get in touch</h2>
+    <p>Found a bug, or something that doesn't feel right on the road? Email and include your iPhone model, the track and what happened.</p>
+    <div class="contact">
+      <a class="email" id="email" href="mailto:mboora@outlook.com?subject=All%20Things%20Race">mboora@outlook.com</a>
+      <button class="copy" id="copy" type="button">Copy email</button>
+    </div>
+    <p class="muted">Replies usually arrive within two working days.</p>
+
+    <h3>Common questions</h3>
+    <dl>
+      <div>
+        <dt>How do I steer?</dt>
+        <dd>Hold your iPhone sideways like handlebars and tilt it left or right. Hold BRAKE with your left thumb and GAS with your right; BOOST sits in the middle.</dd>
+      </div>
+      <div>
+        <dt>Steering is too twitchy or too slow</dt>
+        <dd>Open Settings in the game and choose Gentle, Normal or Sharp tilt. Gentle needs the most lean to turn fully; Sharp needs the least.</dd>
+      </div>
+      <div>
+        <dt>The bike won't turn when I tilt</dt>
+        <dd>Close the game fully (swipe it away in the app switcher) and open it again, then hold the phone sideways and tilt. Steering uses the phone's motion sensor and needs no permission.</dd>
+      </div>
+      <div>
+        <dt>Why do I stop at the kerb at the start?</dt>
+        <dd>With fewer rivals than All, everyone picks up a passenger after the lights. Pull in beside the person with the marker over their head and stop for a moment. Race against All and it's straight into the racing.</dd>
+      </div>
+      <div>
+        <dt>Does anything cost money?</dt>
+        <dd>No. Every bike, paint, finish and engine stage is free from the first ride. There are no purchases, adverts or accounts.</dd>
+      </div>
+      <div>
+        <dt>Why can't I hear anything?</dt>
+        <dd>Check that your iPhone isn't on silent, then check the Music and Sound settings in the game.</dd>
+      </div>
+      <div>
+        <dt>Does it need the internet?</dt>
+        <dd>No. The whole game runs on your iPhone, so it works in Airplane Mode.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>All Things Race is made by Manjinder Boora, an independent developer in the UK. All artwork, music and sound are original. Real place names are used only to say where the roads are, and the game isn't affiliated with any council, venue or motorbike maker.</footer>
+</main>
+
+<script>
+(() => {
+  const btn = document.getElementById("copy");
+  const email = document.getElementById("email");
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(email.textContent.trim());
+      btn.textContent = "Copied";
+    } catch (e) {
+      const range = document.createRange();
+      range.selectNodeContents(email);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = "Selected, press copy";
+    }
+    setTimeout(() => { btn.textContent = "Copy email"; }, 2200);
+  });
+})();
+</script>
+</body>
+</html>
